@@ -1,0 +1,193 @@
+<!doctype html>
+
+<html>
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+
+
+
+<body>
+
+    <div class="h-screen w-screen flex flex-col" id="app">
+
+        <div class="h-10 bg-blue-600 w-full flex">
+
+
+
+        </div>
+
+        <div class="h-full flex flex-col items-center mt-5">
+
+            <div class="flex font-consolas gradient-text">Capoo</div>
+
+            <div class="p-5 container flex">
+
+                <div class="p-3 w-1/5 flex flex-col mt-5 gap-5" v-for="row in rows">
+
+                    <div class="p-2 border-black border flex rounded-lg items-center justify-center text-2xl keys"
+
+                        v-for="key in row">
+
+                        <p class="text-bigger">{{key}}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        const { createApp, ref } = Vue
+
+
+
+        createApp({
+
+            setup() {
+
+                const message = ref('Hello vue!')
+
+                const rows = [
+
+                    ["HTML", "WHTML", "HTML 5", "CSS", "CSS 3", "BootStrap 5", "TCP / IP"],
+
+                    ["JavaScript", "HTML DOM", "jQuery", "AJAX", "JSON", "DHTML", "E4X", "WXMScript"],
+
+                    ["SQL", "ASP", "ADO", "PHP", "VBScipt"],
+
+                    ["Python", "Java", "C++", "机器学习"],
+
+                    ["XML", "XSL", "XSLT", "XSL-FO", "XPath", "XQuery", "XLink", "XPointer", "DTD", "Schema", "XML DOM", "XForms", "WAP"]
+
+                ];
+
+                return {
+
+                    message, rows
+
+                }
+
+            }
+
+        }).mount('#app')
+
+    </script>
+
+    <style>
+
+        .font-consolas {
+
+            font-family: consolas;
+
+        }
+
+
+
+        .gradient-text {
+
+            font-size: 72px;
+
+            background-size: 500% 100%;
+
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+
+            /* 无限循环 */
+
+            animation: gradient 15s ease infinite;
+
+        }
+
+
+
+        @keyframes gradient {
+
+            0% {
+
+                background-position: 500% 50%;
+
+            }
+
+
+
+            100% {
+
+                background-position: 0% 50%;
+
+            }
+
+        }
+
+
+
+        .keys {
+
+            cursor: pointer;
+
+        }
+
+
+
+        .keys:hover {
+
+            background-color: #f5f5f5;
+
+            box-shadow: 0 0 10px #ccc;
+
+
+
+            .text-bigger {
+
+                animation: bigger 0.5s ease forwards;
+
+            }
+
+        }
+
+
+
+        @keyframes bigger {
+
+            0% {
+
+                transform: scale(1);
+
+            }
+
+
+
+            100% {
+
+                transform: scale(1.2);
+
+            }
+
+        }
+
+    </style>
+
+</body>
+
+
+
+</html>
